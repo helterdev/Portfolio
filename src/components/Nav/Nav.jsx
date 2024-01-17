@@ -1,7 +1,7 @@
-import './Navbar.scss';
+import './Nav.scss';
 import { motion } from 'framer-motion';
 import Sidebar from '../Sidebar/Sidebar';
-const Navbar = () => {
+export const Nav = () => {
   return (
     <div className='navbar'>
       {/* sidebar */}
@@ -15,13 +15,13 @@ const Navbar = () => {
           Helter Velez
         </motion.span>
         <div className='social'>
-          <a href=''>
+          <a href='#'>
             <img src='/github.png' alt='github' />
           </a>
-          <a href=''>
+          <a href='#'>
             <img src='/linkedin.png' alt='linkedin' />
           </a>
-          <a href=''>
+          <a href='#'>
             <img src='/instagram.png' alt='instagram' />
           </a>
         </div>
@@ -29,5 +29,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;

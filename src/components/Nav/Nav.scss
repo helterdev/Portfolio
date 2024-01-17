@@ -1,3 +1,4 @@
+@use '../../sass/mixins';
 .navbar {
   height: 100px;
   .wrapper {
@@ -8,9 +9,16 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    margin: 0 4rem; //cambiar en el responsive
+    // @include mixins.mobile {
+    //   justify-content: flex-end;
+    //   padding: 20px;
+    // }
+    // margin: 0 4rem; //cambiar en el responsive
     span {
       font-weight: bold;
+      //   @include mixins.mobile {
+      //     display: none;
+      //   }
     }
     .social {
       display: flex;
