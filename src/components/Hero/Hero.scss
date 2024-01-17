@@ -1,3 +1,4 @@
+@use '../../sass/mixins';
 .hero {
   height: calc(100vh - 100px);
   overflow: hidden;
@@ -16,6 +17,13 @@
       flex-direction: column;
       justify-content: center;
       gap: 40px;
+      @include mixins.mobile {
+        width: 100%;
+        height: 50%;
+        gap: 20px;
+        align-items: center;
+        // text-align: center;
+      }
 
       h2 {
         font-size: 30px;
@@ -25,6 +33,9 @@
 
       h1 {
         font-size: 88px;
+        @include mixins.mobile {
+          font-size: 36px;
+        }
       }
 
       .buttons {
@@ -50,6 +61,17 @@
     position: absolute;
     top: 0;
     right: 0;
+    @include mixins.mobile {
+      height: 50%;
+      width: 100%;
+      top: unset;
+      bottom: 0;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .slidingTextContainer {

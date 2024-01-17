@@ -28,7 +28,8 @@ export const DServices = () => {
       initial='initial'
       //   animate='animate'
       //   whileInView='animate'
-      animate={isInView && 'animate'}
+      animate={'animate'}
+      // isInView &&
       ref={ref}
     >
       <motion.div className='textContainer' variants={variants}>
