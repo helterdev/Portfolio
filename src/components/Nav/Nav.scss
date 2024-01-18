@@ -2,8 +2,8 @@
 .navbar {
   height: 100px;
   .wrapper {
-    max-width: 1366px;
-    // max-width: 1100px;
+    // max-width: 1366px;
+    max-width: 800px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -13,6 +13,11 @@
       justify-content: flex-end;
       padding: 20px;
     }
+
+    @include mixins.desktop {
+      width: 1366px;
+    }
+
     // margin: 0 4rem; //cambiar en el responsive
     span {
       font-weight: bold;

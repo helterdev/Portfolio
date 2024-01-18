@@ -5,25 +5,25 @@ const items = [
   {
     id: 1,
     title: 'React Commerce',
-    img: 'https://www.pexels.com/es-es/foto/mesa-diseno-sillas-interior-17066896/',
+    img: '/people.web',
     des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
   },
   {
     id: 2,
     title: 'React Commerce',
-    img: 'https://www.pexels.com/es-es/foto/mesa-diseno-sillas-interior-17066896/',
+    img: '/people.web',
     des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
   },
   {
     id: 3,
     title: 'React Commerce',
-    img: 'https://www.pexels.com/es-es/foto/mesa-diseno-sillas-interior-17066896/',
+    img: '/people.web',
     des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
   },
   {
     id: 4,
     title: 'React Commerce',
-    img: 'https://www.pexels.com/es-es/foto/mesa-diseno-sillas-interior-17066896/',
+    img: '/people.web',
     des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
   },
 ];
@@ -40,7 +40,7 @@ const Single = ({ item }) => {
       <div className='container'>
         <div className='wrapper'>
           <div className='imageContainer' ref={ref}>
-            <img src={item.img} alt={item.title} />
+            <img src='/people.webp' alt={item.title} />
           </div>
           <motion.div className='textContainer' style={{ y: y }}>
             <h2>{item.title}</h2>

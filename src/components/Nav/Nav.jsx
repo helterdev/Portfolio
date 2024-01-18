@@ -15,13 +15,25 @@ export const Nav = () => {
           Helter Velez
         </motion.span>
         <div className='social'>
-          <a href='#'>
+          <a
+            href='https://github.com/helterdev'
+            rel='noopener, noreferrer'
+            target='_blank'
+          >
             <img src='/github.png' alt='github' />
           </a>
-          <a href='#'>
+          <a
+            href='https://www.linkedin.com/in/helter-conforme-velez-59848218b/'
+            rel='noopener, noreferrer'
+            target='_blank'
+          >
             <img src='/linkedin.png' alt='linkedin' />
           </a>
-          <a href='#'>
+          <a
+            href='https://www.instagram.com/heltervelez_'
+            rel='noopener, noreferrer'
+            target='_blank'
+          >
             <img src='/instagram.png' alt='instagram' />
           </a>
         </div>

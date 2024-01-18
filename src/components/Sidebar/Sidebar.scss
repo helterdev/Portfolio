@@ -1,3 +1,4 @@
+@use '../../sass/mixins';
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -24,6 +25,9 @@
       gap: 20px;
       a {
         font-size: 40px;
+        @include mixins.mobile {
+          font-size: 30px;
+        }
       }
     }
   }
