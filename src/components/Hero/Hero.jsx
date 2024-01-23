@@ -80,7 +80,7 @@ export const Hero = () => {
         Frontend Developer
       </motion.div>
       <div className='imageContainer'>
-        <img src='hero.png' alt='hero' />
+        <img src='/front.png' alt='hero' />
       </div>
     </div>
   );

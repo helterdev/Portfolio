@@ -16,6 +16,7 @@
       align-self: center;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
     p {
       font-weight: 200;
@@ -89,7 +90,7 @@
   .listContainer {
     flex: 2;
     display: flex;
-    max-width: 1366px;
+    max-width: 1000px;
     margin: auto;
     @include mixins.mobile {
       flex-direction: column;
@@ -97,11 +98,21 @@
       display: none;
     }
     .box {
-      padding: 50px;
+      padding: 10px;
       border: 0.5px solid gray;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      text-align: center;
+      justify-content: space-around;
+
+      .icons {
+        width: 50px;
+        height: 50px;
+        &:hover {
+          transform: scale(0.9);
+          transition: 0.1s ease-in;
+        }
+      }
 
       button {
         padding: 10px;

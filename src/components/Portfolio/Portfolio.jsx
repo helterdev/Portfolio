@@ -4,27 +4,38 @@ import './Portfolio.scss';
 const items = [
   {
     id: 1,
-    title: 'React Commerce',
-    img: '/people.web',
-    des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
+    title: 'Remember Me App',
+    img: '/Rememberme.png',
+    des: 'A tasks app with separate user registration, where you can log in and add your tasks. Developed with Next.js and NextAuth on the client side and on the server running in Node.js with Express.js and MongoDB',
+    link: 'https://github.com/helterdev/remember-me-app',
   },
   {
     id: 2,
-    title: 'React Commerce',
-    img: '/people.web',
-    des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
+    title: 'Single Page Store with Cart',
+    img: '/store.png',
+    des: ' Single page website that simulates an online store, where data is brought from an external API and the global state is managed with react.',
+    link: 'https://technical-test-eta-brown.vercel.app/',
   },
   {
     id: 3,
-    title: 'React Commerce',
-    img: '/people.web',
-    des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
+    title: 'Mendoza News',
+    img: '/news.png',
+    des: ' National news website of Argentina, develop the responsive part and validation of registration forms and users. Additionally, I collaborated with the backend team to create endpoints and obtain and record data between client-server.',
+    link: 'https://github.com/helterdev/noticias',
   },
   {
     id: 4,
-    title: 'React Commerce',
-    img: '/people.web',
-    des: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor facilis distinctio. Error, nemo. Neque sint incidunt quaerat voluptatem, maiores ratione quod iusto nihil non quas at recusandae eos quam',
+    title: 'Pelifast',
+    img: '/Pelifast.png',
+    des: ' Website that extracts data from a public API about current movies and series.',
+    link: 'https://pelifast.vercel.app/',
+  },
+  {
+    id: 5,
+    title: 'Clone Uber',
+    img: '/uber.png',
+    des: ' Make a clone of the Uber main page, to test the SHADCN/UI library and typescript.',
+    link: 'https://landingpage-two-gold.vercel.app/',
   },
 ];
 
@@ -40,12 +51,14 @@ const Single = ({ item }) => {
       <div className='container'>
         <div className='wrapper'>
           <div className='imageContainer' ref={ref}>
-            <img src='/people.webp' alt={item.title} />
+            <img src={item.img} alt={item.title} />
           </div>
           <motion.div className='textContainer' style={{ y: y }}>
             <h2>{item.title}</h2>
             <p>{item.des}</p>
-            <button>See Demo</button>
+            <a href={item.link} rel='noopener, noreferrer' target='_blank'>
+              <button type='button'>See Demo</button>
+            </a>
           </motion.div>
         </div>
       </div>

@@ -24,13 +24,9 @@ const App = () => {
         <Parallax type='portfolio' />
       </section>
       <Portfolio />
-      {/* <section>Portfolio 1</section>
-      <section>2</section>
-      <section>3</section> */}
       <section id='Contact'>
         <Contact />
       </section>
-      {/* <section id='About'></section> */}
     </div>
   );
 };

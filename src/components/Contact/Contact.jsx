@@ -1,6 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import './Contact.scss';
 import { motion, useInView } from 'framer-motion';
+import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
+import Spinner from '../UI/Spinner/Spinner';
+import { toast } from 'sonner';
 const variants = {
   initial: {
     y: 500,
@@ -18,8 +22,34 @@ const variants = {
 
 export const Contact = () => {
   const ref = useRef();
-
+  const form = useRef();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const isInView = useInView(ref, { margin: '-100px' });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onsubmit = async (data) => {
+    try {
+      setIsLoading(true);
+      const response = await emailjs.sendForm(
+        `${import.meta.env.VITE_SERVICES_ID}`,
+        `${import.meta.env.VITE_TEMPLATE_ID}`,
+        form.current,
+        `${import.meta.env.VITE_PUBLIC_KEY}`
+      );
+      if (response.status === 200) {
+        setIsLoading(false);
+        return toast.success('Gracias por contáctarme');
+      }
+    } catch (error) {
+      setIsLoading(false);
+      return toast.error('Ops ha ocurrido un error. Intente de nuevo!');
+    }
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -32,7 +62,13 @@ export const Contact = () => {
         <motion.h2 variants={variants}>Lets work together</motion.h2>
         <motion.div className='item' variants={variants}>
           <h3>Email</h3>
-          <span>heltherv@gmail.com</span>
+          <a
+            href='mailto: heltherv@gmail.com'
+            rel='noopener, noreferrer'
+            target='_blank'
+          >
+            <span>heltherv@gmail.com</span>
+          </a>
         </motion.div>
         <motion.div className='item' variants={variants}>
           <h3>Address</h3>
@@ -40,7 +76,13 @@ export const Contact = () => {
         </motion.div>
         <motion.div className='item' variants={variants}>
           <h3>Phone</h3>
-          <span>+593 98 654 9036</span>
+          <a
+            href='//wa.me/593986549036'
+            rel='noopener, noreferrer'
+            target='_blank'
+          >
+            <span>+593 98 654 9036</span>
+          </a>
         </motion.div>
       </motion.div>
       <div className='formContainer'>
@@ -48,7 +90,7 @@ export const Contact = () => {
           className='phoneSvg'
           initial={{ opacity: 1 }}
           whileInView={{ opacity: 0 }}
-          transition={{ delay: 3, duration: 1 }}
+          transition={{ delay: 2, duration: 1 }}
         >
           <svg width='450px' height='450px' viewBox='0 0 32.666 32.666'>
             <motion.path
@@ -78,16 +120,69 @@ export const Contact = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
+          onSubmit={handleSubmit(onsubmit)}
+          ref={form}
         >
-          <input type='text' placeholder='Name' id='name' />
-          <input type='email' placeholder='Email' id='email' />
-          <textarea
-            name='body'
-            id='body'
-            rows={8}
-            placeholder='Message'
-          ></textarea>
-          <button type='submit'>Submit</button>
+          <label>
+            <input
+              type='text'
+              placeholder='Name'
+              id='user_name'
+              {...register('user_name', {
+                required: {
+                  value: true,
+                  message: `Permíteme saber tú nombre`,
+                },
+                minLength: {
+                  value: 3,
+                  message: 'El nombre de ser de minímo 3 carácteres',
+                },
+                maxLength: {
+                  value: 20,
+                  message: 'El nombre no debe contener más de 20 carácteres',
+                },
+              })}
+            />
+            {errors.user_name && (
+              <span className='message-error'>{errors.user_name.message}</span>
+            )}
+          </label>
+          <label>
+            <input
+              type='email'
+              placeholder='Email'
+              id='user_email'
+              {...register('user_email', {
+                required: {
+                  value: true,
+                  message: 'Permíteme un correo para poder contactarte',
+                },
+                pattern: {
+                  value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                  message: 'Ingrese un email valido',
+                },
+              })}
+            />
+            {errors.user_email && (
+              <span className='message-error'>{errors.user_email.message}</span>
+            )}
+          </label>
+          <label>
+            <textarea
+              name='message'
+              id='message'
+              rows={8}
+              placeholder='Message'
+              {...register('message', {
+                required: { value: true, message: 'Algo que quieras decir?' },
+                maxLength: { value: 200, message: 'Se más breve' },
+              })}
+            ></textarea>
+            {errors.message && (
+              <span className='message-error'>{errors.message.message}</span>
+            )}
+          </label>
+          <button type='submit'>{isLoading ? <Spinner /> : 'Submit'}</button>
         </motion.form>
       </div>
     </motion.div>
