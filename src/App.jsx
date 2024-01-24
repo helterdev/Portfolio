@@ -1,4 +1,5 @@
 import './app.scss';
+import { Toaster } from 'sonner';
 import { Contact } from './components/Contact/Contact';
 import { Cursor } from './components/Cursor/Cursor';
 import { DServices } from './components/DServices/DServices';
@@ -26,6 +27,7 @@ const App = () => {
       <Portfolio />
       <section id='Contact' className='section-mobile'>
         <Contact />
+        <Toaster position='top-right' />
       </section>
     </div>
   );
