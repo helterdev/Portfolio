@@ -52,7 +52,7 @@ export const DServices = () => {
         <div className='title'>
           <h2>
             <motion.b whileHover={{ color: 'orange' }}>For Your </motion.b>
-            Bussines
+            Bussines.
           </h2>
           <button>WHAT WE DO?</button>
         </div>
