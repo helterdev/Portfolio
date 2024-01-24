@@ -4,6 +4,9 @@
   overflow: hidden;
   background: linear-gradient(180deg, #0c0c1d, #111132);
   position: relative;
+  @include mixins.mobile {
+    height: 100vh;
+  }
 
   .wrapper {
     // max-width: 800px;
