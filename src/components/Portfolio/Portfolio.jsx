@@ -7,7 +7,7 @@ const items = [
     title: 'Remember Me App',
     img: '/Rememberme.png',
     des: '(In Progress). A tasks app with separate user registration, where you can log in and add your tasks. Developed with Next.js and NextAuth on the client side and on the server running in Node.js with Express.js and MongoDB',
-    link: 'https://github.com/helterdev/remember-me-app',
+    link: 'https://github.com/helterdev/Remember-me-app-client',
   },
   {
     id: 2,
