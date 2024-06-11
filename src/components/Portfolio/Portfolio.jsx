@@ -1,41 +1,34 @@
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { useRef } from 'react';
-import './Portfolio.scss';
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
+import "./Portfolio.scss";
 const items = [
   {
     id: 1,
-    title: 'Remember Me App',
-    img: '/Rememberme.png',
-    des: '(In Progress). A tasks app with separate user registration, where you can log in and add your tasks. Developed with Next.js and NextAuth on the client side and on the server running in Node.js with Express.js and MongoDB',
-    link: 'https://github.com/helterdev/Remember-me-app-client',
+    title: "Remember Me App",
+    img: "/Rememberme.png",
+    des: "(In Progress). A tasks app with separate user registration, where you can log in and add your tasks. Developed with Next.js and NextAuth on the client side and on the server running in Node.js with Express.js and MongoDB",
+    link: "https://github.com/helterdev/Remember-me-app-client",
   },
   {
     id: 2,
-    title: 'Single Page Store with Cart',
-    img: '/store.png',
-    des: ' Single page website that simulates an online store, where data is brought from an external API and the global state is managed with react.',
-    link: 'https://technical-test-eta-brown.vercel.app/',
+    title: "Single Page Store with Cart",
+    img: "/store.png",
+    des: " Single page website that simulates an online store, where data is brought from an external API and the global state is managed with react.",
+    link: "https://github.com/helterdev/technical-test",
   },
   {
     id: 3,
-    title: 'Mendoza News',
-    img: '/news.png',
-    des: ' National news website of Argentina, develop the responsive part and validation of registration forms and users. Additionally, I collaborated with the backend team to create endpoints and obtain and record data between client-server.',
-    link: 'https://github.com/helterdev/noticias',
+    title: "Mendoza News",
+    img: "/news.png",
+    des: " National news website of Argentina, develop the responsive part and validation of registration forms and users. Additionally, I collaborated with the backend team to create endpoints and obtain and record data between client-server.",
+    link: "https://github.com/helterdev/noticias",
   },
   {
     id: 4,
-    title: 'Pelifast',
-    img: '/Pelifast.png',
-    des: ' Website that extracts data from a public API about current movies and series.',
-    link: 'https://pelifast.vercel.app/',
-  },
-  {
-    id: 5,
-    title: 'Clone Uber',
-    img: '/uber.png',
-    des: ' Make a clone of the Uber main page, to test the SHADCN/UI library and typescript.',
-    link: 'https://landingpage-two-gold.vercel.app/',
+    title: "Pelifast",
+    img: "/Pelifast.png",
+    des: " Website that extracts data from a public API about current movies and series.",
+    link: "https://github.com/helterdev/Pelifast",
   },
 ];
 
@@ -69,7 +62,7 @@ export const Portfolio = () => {
   const ref = useRef();
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['end end', 'start start'],
+    offset: ["end end", "start start"],
   });
 
   const scaleX = useSpring(scrollYProgress, {
@@ -78,13 +71,13 @@ export const Portfolio = () => {
   });
   return (
     <div className='portfolio' ref={ref}>
-      <div className='progress'>
+      {/* <div className='progress'>
         <h2>Featured Works</h2>
         <motion.div
           style={{ scaleX: scaleX }}
           className='progressBar'
         ></motion.div>
-      </div>
+      </div> */}
       {items.map((item) => (
         <Single item={item} key={item.id} />
       ))}

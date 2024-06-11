@@ -1,4 +1,4 @@
-@use './sass/mixins';
+@use "./sass/mixins";
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -8,7 +8,7 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 body {
@@ -23,8 +23,8 @@ a {
 
 section {
   // width: 100vw;
-  height: 100vh;
-  scroll-snap-align: center;
+  height: 100svh;
+  // scroll-snap-align: center;
   overflow: hidden;
 }
 
